@@ -15,7 +15,7 @@ class ResultsScreen extends StatelessWidget {
   final void Function() updateQuiz;
   final List<String> chosenAnswers;
 
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData { //get creates a getter and setter for summaryData
     //Map is like a dict in python
     final List<Map<String, Object>> summary = [];
 
@@ -32,12 +32,12 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final summaryData = getSummaryData();
 
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData.where((data) {
-      return data['user_answer'] == data['correct_answer'];
-    }).length;
+    final numCorrectQuestions = summaryData
+    .where(
+      (data) => data['user_answer'] == data['correct_answer']
+      ).length;
 
     return SizedBox(
       width: double.infinity,
